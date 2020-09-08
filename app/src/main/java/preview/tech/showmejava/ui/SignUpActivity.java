@@ -35,8 +35,8 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        //setup_ui();
-       // setup_viewmodel();
+        setup_ui();
+        setup_viewmodel();
 
         findViewById(R.id.btnLogin).setOnClickListener(v -> {
             Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
@@ -54,12 +54,13 @@ public class SignUpActivity extends AppCompatActivity {
             signUp.setPassword(pas);
             signUp.setC_password(c_pas);
 
-
+            signUpViewModel.loadMenues(signUp.getEmail(),signUp.getPassword(),signUp.getC_password());
         });
     }
 
 
     private void setup_ui() {
+        signUp= new SignUp("","","");
         edt_email = findViewById(R.id.edt_email);
         edt_pass = findViewById(R.id.edt_pass);
         edt_c_pass = findViewById(R.id.edt_c_pass);
@@ -68,11 +69,10 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void setup_viewmodel() {
         signUpViewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
-        signUpViewModel.getMenues().observe(this, menuesList -> {
 
-            Intent i= new Intent(SignUpActivity.this,MainActivity.class);
-            startActivity(i);
-        });
+
+        /*Intent i= new Intent(SignUpActivity.this,MainActivity.class);
+        startActivity(i);*/
     }
 
 

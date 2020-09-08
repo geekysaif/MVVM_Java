@@ -33,13 +33,15 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.HeroViewHo
 
     @NonNull
     @Override
+
     public HeroViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mCtx).inflate(R.layout.recyclerview_layout, parent, false);
         return new HeroViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HeroViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HeroViewHolder holder, int position)
+    {
         Hero hero = heroList.get(position);
 
         Glide.with(mCtx)
@@ -71,7 +73,6 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.HeroViewHo
 
         public HeroViewHolder(View itemView) {
             super(itemView);
-
             imageView = itemView.findViewById(R.id.imageView);
             textView = itemView.findViewById(R.id.textView);
         }

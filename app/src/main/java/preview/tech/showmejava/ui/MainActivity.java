@@ -32,17 +32,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setup_ui();
         setup_viewmodel();
-
     }
 
-    private void setup_ui(){
+    private void setup_ui() {
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.showShimmer();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void setup_viewmodel(){
+    private void setup_viewmodel() {
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
         mainViewModel.getHeroes().observe(this, heroList -> {

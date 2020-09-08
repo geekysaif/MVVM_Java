@@ -1,5 +1,6 @@
 package preview.tech.showmejava.viewmodel;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
@@ -26,33 +27,33 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class SignUpViewModel extends ViewModel {
 
     //this is the data that we will fetch asynchronously
-    private MutableLiveData<List<SignUp>> heroList;
-    private SignUpActivity signUpActivity= new SignUpActivity();
+    SignUp heroList = new SignUp("","","");
+    @SuppressLint("StaticFieldLeak")
+    SignUpActivity signUpActivity = new SignUpActivity();
+
+
 
     //we will call this method to get the data
-    public LiveData<List<SignUp>> getMenues() {
-        //if the list is null
-        if (heroList == null) {
-            heroList = new MutableLiveData<List<SignUp>>();
-            //we will load it asynchronously from server in this method
-            loadMenues();
-        }
+    public void getMenues() {
 
-        //finally we will return the list
-        return heroList;
+
     }
 
 
     //This method is using Retrofit to get the JSON data from URL
-    private void loadMenues() {
+    public void loadMenues(String em,String pas, String cpas) {
 
-        Retrofit retrofit = new Retrofit.Builder()
+
+        Log.i("info",  "Email:- "+ em + "Password:- "+pas +"CPassword:- "+cpas);
+
+
+       /* Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         Api api = retrofit.create(Api.class);
-        Call<List<SignUp>> call = api.getSignUp(""+heroList.getValue().get(0).getEmail(),"","");
+        Call<List<SignUp>> call = api.getSignUp(""+heroList.getValue().get(0).getEmail().toString(),"","");
 
         call.enqueue(new Callback<List<SignUp>>() {
             @Override
@@ -66,7 +67,7 @@ public class SignUpViewModel extends ViewModel {
             public void onFailure(Call<List<SignUp>> call, Throwable t) {
 
             }
-        });
+        });*/
     }
 
 }

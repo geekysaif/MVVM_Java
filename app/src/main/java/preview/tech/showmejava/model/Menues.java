@@ -10,9 +10,9 @@ public class Menues implements Serializable {
 
     public Menues(String name, String img) {
         this.name = name;
-
         this.thumbnail = img;
     }
+
 
     public String getName() {
         return name;
@@ -21,8 +21,6 @@ public class Menues implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
-
 
     public String getImageurl() {
         return thumbnail;

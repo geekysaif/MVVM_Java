@@ -3,9 +3,13 @@ package preview.tech.showmejava.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
 import android.os.Bundle;
+
 import com.todkars.shimmer.ShimmerRecyclerView;
+
 import java.util.List;
+
 import preview.tech.showmejava.R;
 import preview.tech.showmejava.adapter.MenuesAdapter;
 import preview.tech.showmejava.model.Hero;
@@ -20,7 +24,6 @@ public class MenuActivity extends AppCompatActivity {
     private MenuesViewModel menuesViewModel;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +32,14 @@ public class MenuActivity extends AppCompatActivity {
         setup_viewmodel();
     }
 
-    private void setup_ui(){
+    private void setup_ui() {
         recyclerView = findViewById(R.id.recyclerview_menues);
         recyclerView.showShimmer();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void setup_viewmodel(){
+    private void setup_viewmodel() {
         menuesViewModel = ViewModelProviders.of(this).get(MenuesViewModel.class);
 
         menuesViewModel.getMenues().observe(this, menuesList -> {
