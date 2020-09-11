@@ -57,6 +57,7 @@ public class MenuesAdapter extends RecyclerView.Adapter<MenuesAdapter.MenuViewHo
                 Toast.makeText(mCtx, ""+hero.getName(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     @Override
